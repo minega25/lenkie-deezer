@@ -1,8 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import searchArtist from "../features/searchArtist";
 
 export default configureStore({
   reducer: {
-    searchResults: searchArtist,
+    searchArtists: searchArtist,
   },
+  middleware: getDefaultMiddleware(),
+  devTools: process.env.NODE_ENV !== "production",
 });

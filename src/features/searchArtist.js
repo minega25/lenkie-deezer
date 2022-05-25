@@ -1,18 +1,39 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
+const DEEZER_ENDPOINT = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/search/artist?q=`;
+
+export const fetchAllArtists = createAsyncThunk(
+  "artists/search",
+  async (artistName = "") => {
+    const response = await fetch(DEEZER_ENDPOINT + `${artistName}`).then(
+      (res) => res.json()
+    );
+    return response;
+  }
+);
 
 export const searchSlice = createSlice({
-  name: "searchResults",
+  name: "searchArtists",
   initialState: {
-    data: [],
+    searchedArtists: [],
+    isLoading: "idle",
+    error: null,
   },
-  reducers: {
-    query: (state, action) => {
-      state.data = action.payload;
-    },
+  extraReducers: (builder) => {
+    builder.addCase(fetchAllArtists.rejected, (state, action) => {
+      state.error = action.error;
+      state.searchedArtists = [];
+      state.isLoading = "completed";
+    });
+    builder.addCase(fetchAllArtists.fulfilled, (state, action) => {
+      state.error = null;
+      state.searchedArtists = action.payload.data;
+      state.isLoading = "completed";
+    });
+    builder.addCase(fetchAllArtists.pending, (state, action) => {
+      state.isLoading = "pending";
+    });
   },
 });
-
-// Action creators are generated for each case reducer function
-export const { query } = searchSlice.actions;
 
 export default searchSlice.reducer;

@@ -1,12 +1,13 @@
 import React from "react";
-import store from "./redux/store";
-import Layout from "./components/Layout";
 import { Provider } from "react-redux";
+
+import store from "./redux/store";
+import Routes from "./Routes";
 
 function App() {
   return (
     <Provider store={store}>
-      <Layout>lorem</Layout>
+      <Routes />
     </Provider>
   );
 }

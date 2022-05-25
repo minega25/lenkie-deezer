@@ -9,16 +9,14 @@ const Main = styled.main`
   display: grid;
   grid-template-columns:
     1fr
-    min(1100px, 100%)
+    min(65ch, 100%)
     1fr;
   & > * {
     grid-column: 2;
   }
-  padding-left: 12px;
-  padding-right: 12px;
+  padding: 12px;
   @media screen and (min-width: 512px) {
-    padding-left: 32px;
-    padding-right: 32px;
+    padding: 32px;
   }
 `;
 
@@ -35,4 +33,3 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
-
