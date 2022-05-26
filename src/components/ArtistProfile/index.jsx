@@ -1,2 +1,3 @@
-export * from "./ArtistProfile";
+export * from "./ArtistProfile.jsx";
 export { default } from "./ArtistProfile";
+

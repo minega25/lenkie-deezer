@@ -27,7 +27,7 @@ export const artistProfileSlice = createSlice({
     });
     builder.addCase(fetchArtistProfile.fulfilled, (state, action) => {
       state.error = null;
-      state.artist = action;
+      state.artist = action.payload;
       state.isLoading = "completed";
     });
     builder.addCase(fetchArtistProfile.pending, (state, action) => {

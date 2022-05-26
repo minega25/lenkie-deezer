@@ -12,7 +12,7 @@ const ResultCard = ({
   id,
 }) => {
   return (
-    <div className=" bg-white rounded-lg border border-gray-200 shadow-md m-3">
+    <div className="bg-white rounded-lg border border-gray-200 shadow-md m-3 sm:max-w-md md:max-w-xs max-h-min">
       <Link to={`/artist/${id}`}>
         <img className="min-w-full rounded-t-lg" src={image} alt={imageAlt} />
       </Link>
@@ -55,4 +55,3 @@ const ResultCard = ({
 };
 
 export default ResultCard;
-

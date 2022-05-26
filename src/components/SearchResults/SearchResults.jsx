@@ -3,12 +3,11 @@ import ResultCard from "../ResultCard/ResultCard";
 import Spinner from "../Spinner";
 
 const SearchResults = ({ data = [], isLoading = "idle" }) => {
-  console.log("data :>> ", data);
   if (isLoading === "pending") {
     return <Spinner />;
   }
   return (
-    <div>
+    <div className="flex flex-wrap">
       {data.map(({ picture_big, nb_album, nb_fan, name, id }) => {
         return (
           <ResultCard
@@ -27,4 +26,3 @@ const SearchResults = ({ data = [], isLoading = "idle" }) => {
 };
 
 export default SearchResults;
-

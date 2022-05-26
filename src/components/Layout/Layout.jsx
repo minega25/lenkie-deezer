@@ -5,11 +5,11 @@ import Header from "../Header";
 import Footer from "../Footer";
 import GlobalStyles from "../GlobalStyles";
 
-const Main = styled.main`
+const Wrapper = styled.span`
   display: grid;
   grid-template-columns:
     1fr
-    min(65ch, 100%)
+    min(1100px, 100%)
     1fr;
   & > * {
     grid-column: 2;
@@ -22,13 +22,13 @@ const Main = styled.main`
 
 const Layout = ({ children }) => {
   return (
-    <>
+    <Wrapper>
       <GlobalStyles />
       <SEO />
       <Header />
-      <Main>{children}</Main>
+      <main>{children}</main>
       <Footer />
-    </>
+    </Wrapper>
   );
 };
 
