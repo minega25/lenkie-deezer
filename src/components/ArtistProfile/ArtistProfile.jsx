@@ -11,7 +11,7 @@ const ArtistProfile = ({
   albums = 0,
 }) => {
   return (
-    <div className=" bg-white rounded-lg border border-gray-200 shadow-md m-3">
+    <div className="bg-white rounded-lg border border-gray-200 shadow-md m-3 max-w-[70%]">
       <img className="min-w-full rounded-t-lg" src={image} alt={imageAlt} />
 
       <div className="p-5">

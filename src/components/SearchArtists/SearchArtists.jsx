@@ -27,7 +27,7 @@ const SearchArtists = () => {
   };
 
   return (
-    <>
+    <div className="min-w-max">
       <form className="flex items-center" onSubmit={handleSubmit}>
         <label htmlFor="simple-search" className="sr-only">
           Search
@@ -77,12 +77,16 @@ const SearchArtists = () => {
           </svg>
         </button>
       </form>
-      <div className="flex justify-center items-center pt-5">
+      <div
+        className="flex justify-center items-center"
+        style={{
+          maxWidth: "fit-content",
+        }}
+      >
         <SearchResults data={results} isLoading={isLoading} />
       </div>
-    </>
+    </div>
   );
 };
 
 export default SearchArtists;
-

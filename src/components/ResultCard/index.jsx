@@ -1,2 +1,2 @@
-export * from "./ResultCard";
+export * from "./ResultCard.jsx";
 export { default } from "./ResultCard";
